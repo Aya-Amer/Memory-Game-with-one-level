@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <div class="features">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+        <ul class="stars">
+            <li id ="starOne"><i class="fas fa-star"></i></li>
+            <li id="starTwo"><i class="fas fa-star"></i></li>
+            <li id="starThree"><i class="fas fa-star"></i></li>
+        </ul>
+        <div class="moves">
+            <p><b><span id ="steps">00</span> Moves</b></p>
+        </div>
+        <div class="timer">
+            <p><b>Time <span id="minutes">00</span> M : <span id="seconds">00</span> S</b></p>
+        </div>
+        <button type="button" class="restart"><i class="fas fa-redo-alt"></i>   Reset</button>
+        <button class="info"><i class="fas fa-info"></i>  Info</button>
+    </div>
+    <div id="memory_Game">
+        <div id="game_structure"></div>
+    </div>
+    
+    <!-- <div class="restart" onclick="startGame()">
+        <p><b>Reset</b></p> <i class="fa fa-refresh fa-spin fa-3x"></i>
+    </div> -->
+    <!-- congratulation message -->
+    <div id="winner" class="win-modal">
+        <div class="win-content">
+            <h1>Congratulations! You win!</h1>
+            <div class="win-msg">
+                <h2>You've earned <span id="starScore"></span>!</h2>
+          You won the game in time <span id="playTime"></span>  using <span id="trails"></span> moves.</div>
+          <br>
+          <br>
+          <button id="playAgain" class="button">Play again</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
