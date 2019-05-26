@@ -7,9 +7,9 @@ var moves=0;
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
 
-// window.onload = startGame();
+
 const restartButton = document.querySelector('.restart');
-// console.log(restartButton);
+
 restartButton.addEventListener('click', restart);
 
 function Shuffle(array){
@@ -45,9 +45,9 @@ for (let i=0 ; i<images.length ; i++){
 }
 game_structure.appendChild(fragment);
 }
-// reset();
+
 game_structure.addEventListener('click' , element_Listener);
-// }
+
 
 function element_Listener(event){
     if (event.target.nodeName === 'SECTION') {
@@ -65,7 +65,6 @@ function flip_Card(event){
     if(oppened_card.length==0){
         oppened_card.push(event.target.childNodes[1].innerHTML);
         matched_card.push(event.target);
-   
     }
     else if(oppened_card.length==1){
         oppened_card.push(event.target.childNodes[1].innerHTML);
@@ -79,11 +78,6 @@ function flip_Card(event){
             console.log(matchedCardContainer);
             match();
             game_over();
-            // if (checked_classes.includes(false) == false){
-            //     var lastMoves =`${document.getElementById("steps").innerHTML} Moves`;
-            //     var lastTime = `Time= ${document.getElementById("minutes").innerHTML}M:${document.getElementById("seconds").innerHTML}S`;
-            //     stopTimer();      
-            // }
             }
             else{                    
                 unmatch();    
@@ -108,7 +102,6 @@ function match(){
 }
 
 function unmatch(){
-
     setTimeout(function(){
         matched_card[0].childNodes[0].classList.remove('front_ro');
         matched_card[0].childNodes[1].classList.remove('back_ro');
@@ -120,13 +113,11 @@ function unmatch(){
         matched_card=[]; 
     },1000);  
 }
-
     let timerRunning = false;
     var gameTime;
 function startTimer(){
     if(!timerRunning){
         timerRunning = true;
-        
         var totalSeconds = 0;
         gameTime=setInterval(setTime, 1000);
     }
@@ -146,56 +137,27 @@ function startTimer(){
         }
     }
 }
-
 function stopTimer(){
     if(timerRunning){
         timerRunning = false; 
         clearInterval(gameTime);
     }
 }
-// var checked_classes =[];
 const winner = document.getElementById("winner");
 function game_over(){
-    // var hidden_cards = document.getElementsByTagName('section');
-    // // console.log(hidden_cards);
-    // for (let hidden_card of hidden_cards){
-    // //    console.log(hidden_card);
-    //    let checked_class = hidden_card.classList.contains("hidden");
-    //    checked_classes.push(checked_class);
-    // //    console.log(checked_classes);
-       
-    // }
     const totalMoves = document.querySelector("#trails");
     const starScore = document.querySelector("#starScore");
     const playTime = document.querySelector("#playTime");
     if(matchedCardContainer.length == images.length){
         stopTimer();
     setTimeout(function(){
-        
             winner.style.display ="block";
             totalMoves.innerHTML = `${document.getElementById("steps").innerHTML} Moves`;
             playTime.innerHTML = `${document.getElementById("minutes").innerHTML}M:${document.getElementById("seconds").innerHTML} S`;
             starScore.innerText = `${star} star`;
     },1000);
 }
-    
-        // var lastMoves =`${document.getElementById("steps").innerHTML} Moves`;
-        // var lastTime = `Time= ${document.getElementById("minutes").innerHTML}M:${document.getElementById("seconds").innerHTML}S`;
-        // stopTimer();   
 }
-
-
-
-// function reset(){
-//     moves=0;
-//     document.getElementById("steps").innerHTML = moves ;
-//     document.getElementsByClassName('stars')[0].style.visibility = "visible";
-//     totalSeconds=0;
-//     secondsLabel.innerHTML=0;
-//     minutesLabel.innerHTML=0;
-//     clearInterval(gameTime);
-// }
-
 const starOne=document.getElementById("starOne");
 const starTwo=document.getElementById("starTwo");
 const starThree=document.getElementById("starThree");
