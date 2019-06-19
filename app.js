@@ -1,3 +1,4 @@
+// Array of diffrent cards 
 var images = ["fas fa-american-sign-language-interpreting" , "fas fa-american-sign-language-interpreting" , "fas fa-cut" ,"fas fa-cut", "fas fa-bicycle" , "fas fa-bicycle" ,"fas fa-asterisk","fas fa-asterisk","fas fa-atom","fas fa-atom","fas fa-car-crash","fas fa-car-crash", "fas fa-chess", "fas fa-chess", "fas fa-drum" , "fas fa-drum"];
 
 var oppened_card=[];
@@ -7,11 +8,12 @@ var moves=0;
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
 
-
+// for resart button 
 const restartButton = document.querySelector('.restart');
 
 restartButton.addEventListener('click', restart);
 
+// function to make Shuffle for cards
 function Shuffle(array){
     var i= array.length , tempValue , randomindex ;
     while (--i >0){
@@ -22,8 +24,12 @@ function Shuffle(array){
     }
     return array;
 }
+
+// Start game from here
 function startGame(){
 images = Shuffle(images);
+
+// Build the game_structure here
 
 const game_structure = document.getElementById('game_structure');
 const fragment = document.createDocumentFragment();
@@ -48,6 +54,7 @@ game_structure.appendChild(fragment);
 
 game_structure.addEventListener('click' , element_Listener);
 
+// listener for all cards if i choose one of them 
 
 function element_Listener(event){
     if (event.target.nodeName === 'SECTION') {
@@ -57,6 +64,8 @@ function element_Listener(event){
         }
     }
 }
+
+// Flip function and check if i choose two cards or not yet 
 
 function flip_Card(event){
         event.target.childNodes[0].classList.add('front_ro');
@@ -73,6 +82,8 @@ function flip_Card(event){
         matched_card[0].classList.add('cardAnimate');
         matched_card[1].classList.add('cardAnimate');
 
+// check if two cards simailar or not         
+
         if (oppened_card[0]==oppened_card[1]){
             matchedCardContainer.push(matched_card[0],matched_card[1]);
             console.log(matchedCardContainer);
@@ -85,11 +96,15 @@ function flip_Card(event){
         }
     }
 
+// Function for increase move counter 
+
 function moveCounter(){
     moves++;
     document.getElementById("steps").innerHTML = moves ;
     rating ();
 }
+
+// This will occur when the cards are matched
 
 function match(){
   
@@ -100,6 +115,8 @@ function match(){
         matched_card=[];
     },1000);   
 }
+
+// For unmatched Cards
 
 function unmatch(){
     setTimeout(function(){
@@ -143,6 +160,9 @@ function stopTimer(){
         clearInterval(gameTime);
     }
 }
+
+// The content of game over function 
+
 const winner = document.getElementById("winner");
 function game_over(){
     const totalMoves = document.querySelector("#trails");
@@ -162,6 +182,8 @@ const starOne=document.getElementById("starOne");
 const starTwo=document.getElementById("starTwo");
 const starThree=document.getElementById("starThree");
 let star=3;
+
+// The rating that affect on the number of stars
 
 function rating (){
     
@@ -184,6 +206,9 @@ const playAgain = document.getElementById("playAgain").addEventListener("click" 
     winner.style.display = "none";
     restart();
 });
+
+// Restart function and clear all variables
+
 function restart(){
     game_structure.innerHTML='';
     moves = 0;
@@ -192,12 +217,15 @@ function restart(){
     starOne.style.display = "inline-block";
     starTwo.style.display = "inline-block";
     starThree.style.display = "inline-block";
-    secondsLabel.innerHTML=00;
-    minutesLabel.innerHTML=00;
+    secondsLabel.innerHTML=0;
+    minutesLabel.innerHTML=0;
     stopTimer();
     oppened_card=[];
     matched_card=[];
     matchedCardContainer=[];
     startGame();
 }
+
+// Invoke function to began the game 
+
 startGame();

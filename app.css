@@ -1,23 +1,29 @@
 *{
-    /* -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; */
+    
     background: #660180f6; 
 }
-body{
-    padding: 7%;
+body {
+    padding: 0% 2% 2% 2%;
     background: #660180f6; 
 }
-.features{
+/* Big Container */
+.features {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-header{
+/* The name of the game */
+header {
     color: rgba(255, 255, 0, 0.699);
     width:100%;
     flex-basis: 100%;
     text-align: center; 
 }
-#game_structure{
+h1{
+    margin: 0%;
+}
+/* The container that contains all cards */
+#game_structure {
     padding: 3%;
     display: flex; 
     flex-flow: row wrap;
@@ -25,89 +31,111 @@ header{
     border-radius: 15px;   
     background-color:oldlace;
 }
-#game_structure section{
+/* Each section for each card */
+#game_structure section {
     flex-basis: 19%; 
-    width: 80px;
-    height: 200px;
+    width: 65px;
+    height: 125px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    margin: 2%; 
+    margin: 1%; 
     border: 2px solid rgb(88, 5, 33);
     border-radius: 10px;   
 }
-.fas{
+/* Fontawesom in each card */
+.fas {
     font-size:50px;
 }
+/* Stars  in the game */
 .stars {
     flex-basis: 10%;
     display: flex;
     padding-left: 15px;
 }
+/* Restart & info button */
 .restart , .info {
     border: none;
     padding-left: 35px;
     text-align: center;
     font-size: 28px;
 }
-
+/* Moves & timer make them in center */
 .moves , .timer {
     flex-basis: 26%;
     text-align: center;
     align-self: center;
 }
-.moves p , .timer{
+/* Change size for the writing */
+.moves p , .timer {
     font-size: 22px;
 }
-#memory_Game{
+/* All cards container */
+#memory_Game {
     border: 6px solid gray;
     border-radius: 15px;
 }
+/* For stars */
 ul li{
     list-style-type: none;
-    margin: 0 5 0 0 ;   
+    margin: 0px 5px 0px 0px ;   
 }
-.fas.fa-star , .fas.fa-redo-alt , .fas.fa-info{
-    font-family: "Font Awesome 5 Free"; font-weight: 600; content: "f005"; color: rgba(255, 255, 0, 0.699);font-size: 30px; 
+/* Change in Stars & Info & Restart Icons */
+.fas.fa-star , .fas.fa-redo-alt , .fas.fa-info {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 600; 
+    content: "f005"; 
+    color: rgba(255, 255, 0, 0.699);
+    font-size: 30px; 
 }
-.flip{
+/* To rotate the card */
+.flip {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     font-family: "Font Awesome 5 Free"; color:white;
-} 
+}
+/* Treat with each card or each section  */
 section {
     position: relative;
     perspective: 30rem;
   }
+  /* The two faces for the card */
   .front, .back {
     position: absolute;
     transition: transform 0.5s;
     backface-visibility:hidden;
     perspective: 3d;
   }
+  /* The back face for the card */
   .back { 
     transform: rotateY(180deg); 
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
     font-family: "Font Awesome 5 Free"; color:white; font-weight: 1000;
   } 
- .font_ro{
+  /* To rotate the front face */
+ .font_ro {
     transform: rotateY(180deg);
   }
-  .back_ro{
+  /* To rotate the back face */
+  .back_ro {
     transform: rotateY(360deg);  
   }
-  .open{
+  /* When open the card */
+  .open {
     color:rgba(255, 255, 0, 0.699);
   }
-  .stopPointer{
+  /* To prevent the effect of Pointer on cards */
+  .stopPointer {
     pointer-events: none; 
   }
-  .hidden{
+  /* To make card hide */
+  .hidden {
       opacity:0;
   }
-  .cardAnimate{
+  /* To make animation on the card */
+  .cardAnimate {
       animation: change 0.6s ease-in-out 1;
   }
   @keyframes change {
@@ -122,8 +150,8 @@ section {
     100% {transform : scale(1, 1);
         background-color: lavender;}
   }
-  .win-modal{
-      /* display: none; */
+  /* Congratulation container */
+  .win-modal {
       width:85%;
       height: 100%;
       background-color: rgba(0,0,0,0);
@@ -135,7 +163,8 @@ section {
       display: none;
       text-align: center;
     }
- .win-content{
+ /* Congratulation content    */
+ .win-content {
       width: 700px;
       height: 500px;
       background-color: white;
@@ -147,7 +176,8 @@ section {
     padding-top:3%;
     
  }
- #playAgain{
+ /* Play again button */
+ #playAgain {
     padding: 0%;
     width: 50%;
     height: 15%;
